@@ -1,259 +1,167 @@
 import "./App.css";
 
-type Capability = {
+type Project = {
   number: string;
   title: string;
+  statement: string;
   description: string;
-  evidence: string[];
+  disciplines: string[];
+  className: string;
 };
-
-type Project = {
-  category: string;
-  title: string;
-  description: string;
-  contribution: string;
-};
-
-const capabilities: Capability[] = [
-  {
-    number: "01",
-    title: "I make complex ideas easier to understand.",
-    description:
-      "I turn complicated products, business requirements, and user journeys into clear digital experiences that help people make confident decisions.",
-    evidence: [
-      "Financial planning tools",
-      "Product education",
-      "Information architecture",
-      "Content strategy",
-    ],
-  },
-  {
-    number: "02",
-    title: "I design experiences people enjoy using.",
-    description:
-      "I combine thoughtful UX, visual design, storytelling, and motion to create experiences that feel intuitive, polished, and memorable.",
-    evidence: [
-      "Interaction design",
-      "Responsive UX",
-      "Prototyping",
-      "Motion and animation",
-    ],
-  },
-  {
-    number: "03",
-    title: "I build what I design.",
-    description:
-      "I move comfortably from design into production code, creating responsive and accessible React experiences with maintainable component architecture.",
-    evidence: [
-      "React and TypeScript",
-      "Reusable components",
-      "API integration",
-      "Accessibility",
-    ],
-  },
-  {
-    number: "04",
-    title: "I create systems that can grow.",
-    description:
-      "I look beyond individual pages to improve design systems, navigation, localization, analytics, performance, and the workflows behind digital products.",
-    evidence: [
-      "Design systems",
-      "Localization",
-      "Analytics and SEO",
-      "Scalable architecture",
-    ],
-  },
-  {
-    number: "05",
-    title: "I lead work from idea to launch.",
-    description:
-      "I bring executives, designers, developers, vendors, and subject-matter experts together to turn ambitious ideas into finished experiences.",
-    evidence: [
-      "Cross-functional leadership",
-      "Executive communication",
-      "Vendor collaboration",
-      "Product delivery",
-    ],
-  },
-];
 
 const projects: Project[] = [
   {
-    category: "Product Design · React · Financial Technology",
+    number: "01",
     title: "Guaranteed Income Calculator",
+    statement: "Making retirement planning easier to understand.",
     description:
-      "A responsive financial-planning tool that helps users explore complex retirement-income scenarios through a clear and approachable experience.",
-    contribution:
-      "UX strategy, interaction design, front-end development, validation, API integration, analytics, and accessibility.",
+      "A responsive financial-planning experience that translates complex income scenarios into a clear, approachable tool.",
+    disciplines: ["Product strategy", "UX design", "React", "API integration"],
+    className: "project--income",
   },
   {
-    category: "Product Strategy · UX · Interactive Design",
+    number: "02",
     title: "When Will I Die?",
+    statement: "Making a difficult subject surprisingly engaging.",
     description:
-      "A playful, mobile-first quiz experience that combines storytelling, animation, education, and interaction to make a difficult topic engaging.",
-    contribution:
-      "Product direction, experience design, interaction patterns, responsive UI, component planning, and stakeholder communication.",
+      "A playful mobile-first experience combining interaction, education, animation, and storytelling.",
+    disciplines: [
+      "Product design",
+      "Interaction design",
+      "Creative direction",
+      "TypeScript",
+    ],
+    className: "project--wwid",
   },
   {
-    category: "Digital Strategy · UX Engineering · Enterprise Web",
+    number: "03",
     title: "Aspida Digital Experience",
+    statement: "Building an enterprise ecosystem—not just individual pages.",
     description:
-      "A growing collection of enterprise websites, product experiences, educational tools, and interactive stories designed to simplify financial products.",
-    contribution:
-      "UX leadership, front-end architecture, design systems, navigation, animation, accessibility, analytics, and ongoing optimization.",
+      "A connected collection of product experiences, educational tools, design systems, and digital platforms.",
+    disciplines: [
+      "UX leadership",
+      "Front-end architecture",
+      "Accessibility",
+      "Digital strategy",
+    ],
+    className: "project--aspida",
   },
 ];
 
-const processSteps = [
+const capabilities = [
   {
-    title: "Understand",
+    title: "Think",
     description:
-      "Learn the business, the audience, the constraints, and the real problem behind the request.",
-  },
-  {
-    title: "Simplify",
-    description:
-      "Organize complex information and identify the clearest path forward.",
+      "I uncover the real problem, understand the audience, and turn ambiguity into a clear direction.",
   },
   {
     title: "Design",
     description:
-      "Create an experience that balances usability, brand, emotion, and business goals.",
+      "I create thoughtful experiences that balance usability, emotion, business goals, and brand.",
   },
   {
     title: "Build",
     description:
-      "Turn the design into responsive, accessible, and maintainable production code.",
+      "I turn ideas into accessible, responsive, maintainable experiences using modern front-end technology.",
   },
   {
-    title: "Measure",
+    title: "Lead",
     description:
-      "Use feedback, analytics, and observation to improve the experience after launch.",
+      "I bring people together, communicate the vision, and guide work from early concept through launch.",
   },
 ];
 
 function App() {
   return (
-    <div className="site">
-      <header className="site-header">
-        <a className="site-logo" href="#top" aria-label="Paul Hagwood home">
-          PH
+    <div className="portfolio">
+      <header className="header">
+        <a className="brand" href="#top" aria-label="Paul Hagwood home">
+          Paul Hagwood
         </a>
 
-        <nav className="site-nav" aria-label="Primary navigation">
-          <a href="#capabilities">Capabilities</a>
+        <nav className="navigation" aria-label="Primary navigation">
           <a href="#work">Work</a>
-          <a href="#process">Process</a>
+          <a href="#approach">Approach</a>
           <a href="#about">About</a>
+          <a href="#contact">Contact</a>
         </nav>
       </header>
 
       <main>
         <section className="hero" id="top">
-          <div className="hero__content">
-            <p className="eyebrow">Design · Engineering · Digital Leadership</p>
+          <div className="hero__copy">
+            <p className="hero__hello">Hello, I’m Paul.</p>
 
             <h1>
-              I turn complex ideas into clear, engaging digital experiences.
+              I turn complicated ideas into digital experiences that feel clear,
+              useful, and human.
             </h1>
 
-            <p className="hero__intro">
-              I combine product strategy, UX design, front-end development,
-              accessibility, storytelling, and leadership to take digital
-              experiences from early idea through launch and improvement.
+            <p className="hero__description">
+              I’m a digital experience leader, designer, and front-end developer
+              working across strategy, UX, storytelling, technology,
+              accessibility, and product delivery.
             </p>
 
-            <div className="hero__actions">
-              <a className="button button--primary" href="#work">
-                Explore my work
-              </a>
+            <a className="arrow-link" href="#work">
+              Explore selected work
+              <span aria-hidden="true">↘</span>
+            </a>
+          </div>
 
-              <a className="text-link" href="#capabilities">
-                See what I bring
-                <span aria-hidden="true">↓</span>
-              </a>
+          <div className="hero__portrait" aria-label="Portrait placeholder">
+            <div className="portrait-placeholder">
+              <span>PH</span>
             </div>
           </div>
-
-          <div className="hero__statement" aria-hidden="true">
-            <span>Think</span>
-            <span>Design</span>
-            <span>Build</span>
-            <span>Lead</span>
-          </div>
         </section>
 
-        <section className="section introduction">
-          <div className="section-heading">
-            <p className="eyebrow">What I bring</p>
-            <h2>More than a collection of deliverables.</h2>
-          </div>
+        <section className="personal-note">
+          <p>
+            I’m most energized when something feels complicated, uncertain, or
+            difficult to explain.
+          </p>
 
-          <div className="introduction__copy">
-            <p>
-              I do not approach digital work as separate design, development,
-              or business tasks. I connect them.
-            </p>
-
-            <p>
-              That means I can help a team understand the problem, shape the
-              experience, communicate the vision, build the solution, and
-              improve it after launch.
-            </p>
-          </div>
+          <p>That’s usually where the most meaningful design work begins.</p>
         </section>
 
-        <section className="section capabilities" id="capabilities">
-          <div className="section-heading section-heading--wide">
-            <p className="eyebrow">How I help companies</p>
-            <h2>Problems I solve</h2>
+        <section className="work-section" id="work">
+          <div className="section-intro">
+            <p className="section-label">Selected work</p>
+            <h2>A few ways I’ve helped ideas become real.</h2>
           </div>
 
-          <div className="capabilities__list">
-            {capabilities.map((capability) => (
-              <article className="capability" key={capability.number}>
-                <p className="capability__number">{capability.number}</p>
+          <div className="project-list">
+            {projects.map((project) => (
+              <article
+                className={`project ${project.className}`}
+                key={project.title}
+              >
+                <div className="project__visual">
+                  <span className="project__number">{project.number}</span>
 
-                <div className="capability__content">
-                  <h3>{capability.title}</h3>
-                  <p>{capability.description}</p>
-                </div>
-
-                <ul className="capability__evidence">
-                  {capability.evidence.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section className="section work" id="work">
-          <div className="section-heading section-heading--wide">
-            <p className="eyebrow">Selected evidence</p>
-            <h2>Work that shows how I think.</h2>
-          </div>
-
-          <div className="projects">
-            {projects.map((project, index) => (
-              <article className="project-card" key={project.title}>
-                <div className="project-card__visual">
-                  <span>{String(index + 1).padStart(2, "0")}</span>
-                </div>
-
-                <div className="project-card__content">
-                  <p className="project-card__category">{project.category}</p>
-                  <h3>{project.title}</h3>
-                  <p>{project.description}</p>
-
-                  <div className="project-card__contribution">
-                    <strong>My contribution</strong>
-                    <p>{project.contribution}</p>
+                  <div className="project__mockup">
+                    <span>{project.title}</span>
                   </div>
+                </div>
 
-                  <button className="project-card__link" type="button">
-                    Case study coming soon
+                <div className="project__content">
+                  <p className="project__statement">{project.statement}</p>
+
+                  <h3>{project.title}</h3>
+
+                  <p className="project__description">{project.description}</p>
+
+                  <ul className="project__disciplines">
+                    {project.disciplines.map((discipline) => (
+                      <li key={discipline}>{discipline}</li>
+                    ))}
+                  </ul>
+
+                  <button className="project__link" type="button">
+                    View case study
+                    <span aria-hidden="true">↗</span>
                   </button>
                 </div>
               </article>
@@ -261,72 +169,96 @@ function App() {
           </div>
         </section>
 
-        <section className="section process" id="process">
-          <div className="section-heading">
-            <p className="eyebrow">How I work</p>
-            <h2>From ambiguity to a finished experience.</h2>
+        <section className="approach" id="approach">
+          <div className="section-intro">
+            <p className="section-label">What I bring</p>
+            <h2>I connect the pieces that are often kept separate.</h2>
           </div>
 
-          <div className="process__steps">
-            {processSteps.map((step, index) => (
-              <article className="process-step" key={step.title}>
-                <p className="process-step__number">
+          <div className="capability-grid">
+            {capabilities.map((capability, index) => (
+              <article className="capability" key={capability.title}>
+                <span className="capability__number">
                   {String(index + 1).padStart(2, "0")}
-                </p>
-                <h3>{step.title}</h3>
-                <p>{step.description}</p>
+                </span>
+
+                <h3>{capability.title}</h3>
+
+                <p>{capability.description}</p>
               </article>
             ))}
           </div>
         </section>
 
-        <section className="section about" id="about">
-          <div className="section-heading">
-            <p className="eyebrow">About Paul</p>
-            <h2>I work where design, technology, and business meet.</h2>
+        <section className="about" id="about">
+          <div className="about__headline">
+            <p className="section-label">A little about me</p>
+
+            <h2>
+              Designer by instinct.
+              <br />
+              Developer by practice.
+              <br />
+              Problem solver by nature.
+            </h2>
           </div>
 
-          <div className="about__content">
-            <p className="about__lead">
-              I am a digital experience leader, designer, and front-end
-              developer who enjoys turning complicated challenges into
-              thoughtful, useful products.
+          <div className="about__copy">
+            <p>
+              My career has grown across design, front-end development, digital
+              strategy, analytics, accessibility, content, and leadership.
             </p>
 
-            <div className="about__details">
-              <p>
-                My experience spans enterprise websites, product tools,
-                financial education, interactive storytelling, localization,
-                analytics, accessibility, design systems, and React
-                development.
-              </p>
+            <p>
+              I’ve learned that the best experiences rarely come from one
+              discipline. They happen when technology, creativity, business, and
+              empathy are considered together.
+            </p>
 
-              <p>
-                I am at my best when I can understand a problem deeply, bring
-                people together around a strong direction, and help turn that
-                direction into something real.
-              </p>
-            </div>
+            <p>
+              Outside work, I’m drawn to art, movement, nature, storytelling,
+              and experiences that help people see familiar things differently.
+            </p>
           </div>
         </section>
 
-        <section className="contact">
-          <p className="eyebrow">Let’s build something meaningful</p>
+        <section className="contact" id="contact">
+          <p className="section-label">Let’s connect</p>
 
           <h2>
-            Looking for someone who can think strategically and bring the work
-            to life?
+            Have an interesting problem that needs both imagination and
+            execution?
           </h2>
 
-          <a className="button button--primary" href="mailto:">
+          <a className="contact__link" href="mailto:">
             Start a conversation
+            <span aria-hidden="true">↗</span>
           </a>
         </section>
       </main>
 
-      <footer className="site-footer">
+      <footer className="footer">
         <p>© 2026 Paul Hagwood</p>
-        <a href="#top">Back to top ↑</a>
+
+        <div>
+          <a href="#top">Back to top</a>
+          <a
+            href="https://github.com/pmhagwood"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="View Paul's GitHub profile (opens a new tab)"
+          >
+            GitHub
+          </a>
+          <a
+            href="https://www.linkedin.com/in/paul-h-0215504a/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="View Paul's LinkedIn profile (opens a new tab)"
+          >
+            LinkedIn
+          </a>
+        </div>
       </footer>
     </div>
   );
