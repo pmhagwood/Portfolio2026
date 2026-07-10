@@ -1,3 +1,4 @@
+import shapeOnlyLogo from "./assets/images/paulhagwood-creative-logo-shapeonly.png";
 import "./App.css";
 
 type Project = {
@@ -110,9 +111,9 @@ function App() {
             </a>
           </div>
 
-          <div className="hero__portrait" aria-label="Portrait placeholder">
-            <div className="portrait-placeholder">
-              <span>PH</span>
+          <div className="hero__portrait">
+            <div className="logo-container">
+              <img src={shapeOnlyLogo} alt="Paul Hagwood Creative logo" />
             </div>
           </div>
         </section>
