@@ -34,9 +34,7 @@ function IncomeCalculatorPreview() {
 
   useEffect(() => {
     const duration =
-      activeFrame === frames.length - 1
-        ? RESULT_DURATION
-        : FRAME_DURATION;
+      activeFrame === frames.length - 1 ? RESULT_DURATION : FRAME_DURATION;
 
     const timeoutId = window.setTimeout(() => {
       setActiveFrame((currentFrame) => {
@@ -53,6 +51,7 @@ function IncomeCalculatorPreview() {
     <div className="income-preview">
       <div
         className="income-preview__phone"
+        role="group"
         aria-label="Animated preview of the Guaranteed Income Calculator"
       >
         <div className="income-preview__speaker" aria-hidden="true" />
@@ -79,22 +78,22 @@ function IncomeCalculatorPreview() {
         <div className="income-preview__side-button income-preview__side-button--right" />
       </div>
 
-      <div className="income-preview__callouts" aria-hidden="true">
-  <p className="income-preview__callout income-preview__callout--one">
-    <strong>Two ways to plan</strong>
-    Start with a contribution or a desired monthly income.
-  </p>
+      <div className="income-preview__callouts">
+        <p className="income-preview__callout income-preview__callout--one">
+          <strong>Two ways to plan</strong>
+          Start with a contribution or a desired monthly income.
+        </p>
 
-  <p className="income-preview__callout income-preview__callout--two">
-    <strong>Clear results</strong>
-    Monthly and annual guaranteed income at a glance.
-  </p>
+        <p className="income-preview__callout income-preview__callout--two">
+          <strong>Clear results</strong>
+          Monthly and annual guaranteed income at a glance.
+        </p>
 
-  <p className="income-preview__callout income-preview__callout--three">
-    <strong>Built responsively</strong>
-    Designed to work naturally across screen sizes.
-  </p>
-</div>
+        <p className="income-preview__callout income-preview__callout--three">
+          <strong>Built responsively</strong>
+          Designed to work naturally across screen sizes.
+        </p>
+      </div>
 
       <div className="income-preview__progress" aria-hidden="true">
         {frames.map((frame, index) => (
