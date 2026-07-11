@@ -1,21 +1,38 @@
+/* ==========================================================================
+   1. DESIGN TOKENS & GLOBAL DEFAULTS
+   ========================================================================== */
+
 :root {
+  /* Typography */
   font-family: Inter, Arial, Helvetica, sans-serif;
-  color: #24211f;
-  background: #f3efe8;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
 
+  /* Core colors */
+  color: #24211f;
+  background: #f3efe8;
+
+  /* Design tokens */
   --paper: #f3efe8;
   --paper-light: #faf8f4;
   --ink: #24211f;
   --muted: #716b64;
   --line: rgba(36, 33, 31, 0.18);
+
+  /* Accent colors */
   --orange: #ec7658;
   --yellow: #e7cf64;
   --blue: #7ea9c6;
   --green: #91a88b;
+
+  /* Shared layout spacing */
   --page-padding: clamp(1.5rem, 5vw, 5.5rem);
 }
+
+
+/* ==========================================================================
+   2. RESET & BASE ELEMENTS
+   ========================================================================== */
 
 * {
   box-sizing: border-box;
@@ -47,9 +64,19 @@ button {
   color: inherit;
 }
 
+
+/* ==========================================================================
+   3. SITE SHELL
+   ========================================================================== */
+
 .portfolio {
   overflow: hidden;
 }
+
+
+/* ==========================================================================
+   4. HEADER & PRIMARY NAVIGATION
+   ========================================================================== */
 
 .header {
   display: flex;
@@ -76,6 +103,7 @@ button {
   font-size: 0.9rem;
 }
 
+/* Animated underline for hover and keyboard focus */
 .navigation a::after {
   position: absolute;
   right: 0;
@@ -94,6 +122,11 @@ button {
   transform: scaleX(1);
   transform-origin: left;
 }
+
+
+/* ==========================================================================
+   5. HERO
+   ========================================================================== */
 
 .hero {
   display: grid;
@@ -133,6 +166,37 @@ button {
   line-height: 1.7;
 }
 
+
+/* Hero role tags */
+
+.hero__roles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 2rem;
+}
+
+.hero__roles span {
+  padding: 0.6rem 0.9rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+
+/* Hero links and actions */
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
 .arrow-link {
   display: inline-flex;
   align-items: center;
@@ -141,6 +205,10 @@ button {
   padding-bottom: 0.35rem;
   border-bottom: 1px solid var(--ink);
   font-weight: 700;
+}
+
+.hero__actions .arrow-link {
+  margin-top: 0;
 }
 
 .arrow-link span {
@@ -152,8 +220,17 @@ button {
   transform: translate(0.2rem, 0.2rem);
 }
 
+.arrow-link--secondary {
+  border-bottom-color: var(--line);
+  color: var(--muted);
+}
+
+
+/* Hero logo / portrait area */
+
 .hero__portrait {
   display: flex;
+  flex-direction: column;
   justify-content: center;
 }
 
@@ -170,6 +247,22 @@ button {
   height: auto;
   object-fit: contain;
 }
+
+.hero__logo-caption {
+  max-width: 260px;
+  margin: 1.5rem auto 0;
+  color: var(--muted);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1rem;
+  font-style: italic;
+  line-height: 1.5;
+  text-align: center;
+}
+
+
+/* ==========================================================================
+   6. PERSONAL STATEMENT
+   ========================================================================== */
 
 .personal-note {
   display: grid;
@@ -188,6 +281,26 @@ button {
   letter-spacing: -0.035em;
 }
 
+.personal-note__supporting {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Secondary paragraph uses the sans-serif body style */
+.personal-note__supporting p:last-child {
+  color: rgba(250, 248, 244, 0.7);
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  font-size: clamp(1rem, 1.6vw, 1.25rem);
+  line-height: 1.7;
+  letter-spacing: 0;
+}
+
+
+/* ==========================================================================
+   7. SHARED SECTION STYLES
+   ========================================================================== */
+
 .work-section,
 .approach,
 .about {
@@ -202,7 +315,7 @@ button {
 }
 
 .section-label {
-  margin: 0;
+  margin: 0 0 1rem 0;
   color: var(--orange);
   font-size: 0.75rem;
   font-weight: 750;
@@ -222,6 +335,11 @@ button {
   letter-spacing: -0.05em;
 }
 
+
+/* ==========================================================================
+   8. SELECTED WORK / PROJECTS
+   ========================================================================== */
+
 .project-list {
   display: grid;
   gap: clamp(5rem, 10vw, 10rem);
@@ -234,9 +352,13 @@ button {
   gap: clamp(3rem, 8vw, 8rem);
 }
 
+/* Alternate the visual and text positions on desktop */
 .project:nth-child(even) .project__visual {
   order: 2;
 }
+
+
+/* Project visual panel */
 
 .project__visual {
   position: relative;
@@ -269,6 +391,9 @@ button {
   letter-spacing: 0.12em;
 }
 
+
+/* Temporary project mockup */
+
 .project__mockup {
   display: flex;
   width: 72%;
@@ -298,6 +423,9 @@ button {
   font-size: clamp(2rem, 4vw, 4.2rem);
   line-height: 1;
 }
+
+
+/* Project content */
 
 .project__statement {
   margin: 0 0 1.5rem;
@@ -354,6 +482,11 @@ button {
   font-weight: 700;
 }
 
+
+/* ==========================================================================
+   9. CAPABILITIES / APPROACH
+   ========================================================================== */
+
 .approach {
   background: var(--paper-light);
 }
@@ -394,6 +527,70 @@ button {
   line-height: 1.7;
 }
 
+.capability__details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin: 2rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.capability__details li {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+
+
+/* ==========================================================================
+   10. BRAND EXPERIENCE
+   ========================================================================== */
+
+.brand-experience {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(300px, 0.85fr);
+  gap: clamp(4rem, 10vw, 10rem);
+  padding: clamp(6rem, 11vw, 11rem) var(--page-padding);
+  background: var(--ink);
+  color: var(--paper-light);
+}
+
+.brand-experience h2 {
+  max-width: 900px;
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(3rem, 6vw, 6.5rem);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.05em;
+}
+
+.brand-experience__content {
+  align-self: end;
+}
+
+.brand-experience__content p {
+  margin: 0 0 1.5rem;
+  color: rgba(250, 248, 244, 0.72);
+  font-size: 1.08rem;
+  line-height: 1.75;
+}
+
+.brand-experience__content .brand-experience__lead {
+  color: var(--paper-light);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.6rem, 3vw, 2.8rem);
+  line-height: 1.25;
+}
+
+
+/* ==========================================================================
+   11. ABOUT
+   ========================================================================== */
+
 .about {
   display: grid;
   grid-template-columns: minmax(0, 1.2fr) minmax(300px, 0.8fr);
@@ -410,6 +607,11 @@ button {
   font-size: clamp(1.1rem, 1.8vw, 1.35rem);
   line-height: 1.75;
 }
+
+
+/* ==========================================================================
+   12. CONTACT
+   ========================================================================== */
 
 .contact {
   padding: clamp(6rem, 12vw, 12rem) var(--page-padding);
@@ -436,6 +638,11 @@ button {
   font-weight: 750;
 }
 
+
+/* ==========================================================================
+   13. FOOTER
+   ========================================================================== */
+
 .footer {
   display: flex;
   align-items: center;
@@ -455,10 +662,17 @@ button {
   gap: 1.5rem;
 }
 
+
+/* ==========================================================================
+   14. RESPONSIVE STYLES
+   ========================================================================== */
+
+/* Tablet and smaller */
 @media (max-width: 900px) {
   .hero,
   .project,
-  .about {
+  .about,
+  .brand-experience {
     grid-template-columns: 1fr;
   }
 
@@ -474,6 +688,7 @@ button {
     max-width: 330px;
   }
 
+  /* Return alternating projects to normal document order */
   .project:nth-child(even) .project__visual {
     order: initial;
   }
@@ -483,6 +698,8 @@ button {
   }
 }
 
+
+/* Mobile */
 @media (max-width: 680px) {
   .navigation {
     display: none;
@@ -490,6 +707,11 @@ button {
 
   .hero h1 {
     font-size: clamp(3.3rem, 15vw, 5.6rem);
+  }
+
+  .hero__actions {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .personal-note,
@@ -507,8 +729,8 @@ button {
   }
 
   .footer {
-    align-items: flex-start;
     flex-direction: column;
+    align-items: flex-start;
     gap: 1.5rem;
   }
 
