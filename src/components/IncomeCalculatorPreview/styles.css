@@ -1,0 +1,272 @@
+/* ==========================================================================
+   INCOME CALCULATOR PREVIEW
+   Animated screenshots inside a CSS-built phone with editorial callouts
+   ========================================================================== */
+
+.income-preview {
+  position: relative;
+  width: min(100%, 620px);
+  min-height: 680px;
+  margin: 0 auto;
+}
+
+
+/* ==========================================================================
+   PHONE
+   ========================================================================== */
+
+.income-preview__phone {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 0;
+  width: min(54%, 360px);
+  aspect-ratio: 9 / 19.5;
+  padding: 0.55rem;
+  border: 0.18rem solid #1b1b1b;
+  border-radius: 3.1rem;
+  background:
+    linear-gradient(
+      145deg,
+      #4d4d4d 0%,
+      #171717 18%,
+      #050505 50%,
+      #222222 82%,
+      #4d4d4d 100%
+    );
+  box-shadow:
+    0 2.25rem 4rem rgba(36, 33, 31, 0.28),
+    inset 0 0 0 0.08rem rgba(255, 255, 255, 0.16);
+  transform: translateY(-50%) rotate(3deg);
+  transition: transform 400ms ease;
+}
+
+.income-preview:hover .income-preview__phone {
+  transform: translateY(-52%) rotate(1deg);
+}
+
+
+/* ==========================================================================
+   PHONE SCREEN
+   ========================================================================== */
+
+.income-preview__screen {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 2.55rem;
+  background: #ffffff;
+  isolation: isolate;
+}
+
+.income-preview__frame {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  inset: 0;
+  object-fit: cover;
+  object-position: top center;
+  opacity: 0;
+  transform: scale(1.015);
+  transition:
+    opacity 500ms ease,
+    transform 900ms ease;
+}
+
+.income-preview__frame.is-active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+
+/* ==========================================================================
+   SPEAKER / CAMERA DETAIL
+   ========================================================================== */
+
+.income-preview__speaker {
+  position: absolute;
+  z-index: 3;
+  top: 1.1rem;
+  left: 50%;
+  width: 5.4rem;
+  height: 1.55rem;
+  border-radius: 999px;
+  background: #050505;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.05),
+    0 0.15rem 0.3rem rgba(0, 0, 0, 0.25);
+  transform: translateX(-50%);
+}
+
+.income-preview__speaker::after {
+  position: absolute;
+  top: 50%;
+  right: 0.7rem;
+  width: 0.35rem;
+  height: 0.35rem;
+  border-radius: 50%;
+  background: #20262c;
+  content: "";
+  transform: translateY(-50%);
+}
+
+
+/* ==========================================================================
+   SIDE BUTTONS
+   ========================================================================== */
+
+.income-preview__side-button {
+  position: absolute;
+  width: 0.18rem;
+  border-radius: 999px;
+  background: #242424;
+}
+
+.income-preview__side-button--left {
+  top: 6.2rem;
+  left: -0.35rem;
+  height: 4.5rem;
+}
+
+.income-preview__side-button--right {
+  top: 7.4rem;
+  right: -0.35rem;
+  height: 5.4rem;
+}
+
+
+/* ==========================================================================
+   EDITORIAL CALLOUTS
+   ========================================================================== */
+
+.income-preview__callouts {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+}
+
+.income-preview__callout {
+  position: absolute;
+  width: min(42%, 230px);
+  margin: 0;
+  color: rgba(36, 33, 31, 0.72);
+  font-size: 0.86rem;
+  line-height: 1.5;
+}
+
+.income-preview__callout strong {
+  display: block;
+  margin-bottom: 0.35rem;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.15rem;
+  font-weight: 400;
+}
+
+.income-preview__callout::before {
+  position: absolute;
+  top: 0.7rem;
+  right: calc(100% + 1rem);
+  width: 3rem;
+  height: 1px;
+  background: rgba(36, 33, 31, 0.35);
+  content: "";
+}
+
+.income-preview__callout--one {
+  top: 14%;
+  right: 0;
+}
+
+.income-preview__callout--two {
+  top: 43%;
+  right: -2%;
+}
+
+.income-preview__callout--three {
+  right: 2%;
+  bottom: 12%;
+}
+
+
+/* ==========================================================================
+   PROGRESS DOTS
+   ========================================================================== */
+
+.income-preview__progress {
+  position: absolute;
+  z-index: 3;
+  bottom: 1.5rem;
+  left: 28%;
+  display: flex;
+  justify-content: center;
+  gap: 0.45rem;
+  margin: 0;
+  transform: translateX(-50%);
+}
+
+.income-preview__progress span {
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 50%;
+  background: rgba(36, 33, 31, 0.25);
+  transition:
+    background-color 200ms ease,
+    transform 200ms ease;
+}
+
+.income-preview__progress span.is-active {
+  background: var(--ink);
+  transform: scale(1.3);
+}
+
+
+/* ==========================================================================
+   TABLET / MOBILE
+   ========================================================================== */
+
+@media (max-width: 760px) {
+  .income-preview {
+    width: min(100%, 390px);
+    min-height: 620px;
+  }
+
+  .income-preview__phone {
+    top: 46%;
+    left: 50%;
+    width: min(78%, 340px);
+    transform: translate(-50%, -50%) rotate(2deg);
+  }
+
+  .income-preview:hover .income-preview__phone {
+    transform: translate(-50%, -50%) rotate(2deg);
+  }
+
+  .income-preview__callouts {
+    display: none;
+  }
+
+  .income-preview__progress {
+    bottom: 1rem;
+    left: 50%;
+  }
+}
+
+
+/* ==========================================================================
+   REDUCED MOTION
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .income-preview__phone,
+  .income-preview__frame,
+  .income-preview__progress span {
+    transition: none;
+  }
+
+  .income-preview__phone,
+  .income-preview:hover .income-preview__phone {
+    transform: translateY(-50%) rotate(0);
+  }
+}

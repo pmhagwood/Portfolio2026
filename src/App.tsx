@@ -1,4 +1,5 @@
-import shapeOnlyLogo from "./assets/images/paulhagwood-creative-logo-shapeonly.png";
+import IncomeCalculatorPreview from "./components/IncomeCalculatorPreview";
+import shapeOnlyLogo from "./assets/images/logos/paulhagwood-creative-logo-shapeonly.png";
 import "./App.css";
 
 type Project = {
@@ -195,9 +196,13 @@ function App() {
                 <div className="project__visual">
                   <span className="project__number">{project.number}</span>
 
-                  <div className="project__mockup">
-                    <span>{project.title}</span>
-                  </div>
+                  {project.className === "project--income" ? (
+  <IncomeCalculatorPreview />
+) : (
+  <div className="project__mockup">
+    <span>{project.title}</span>
+  </div>
+)}
                 </div>
 
                 <div className="project__content">

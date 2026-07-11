@@ -371,7 +371,14 @@ button {
 }
 
 .project--income .project__visual {
+  min-height: 680px;
+  overflow: visible;
+  padding: 0;
   background: var(--yellow);
+}
+
+.project--income .income-preview {
+  transform: translateX(5%);
 }
 
 .project--wwid .project__visual {
@@ -696,6 +703,10 @@ button {
   .section-intro {
     grid-template-columns: 1fr;
   }
+
+  .project--income .income-preview {
+  transform: none;
+}
 }
 
 
