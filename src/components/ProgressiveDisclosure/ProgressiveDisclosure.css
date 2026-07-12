@@ -1,0 +1,235 @@
+/* ==========================================================================
+   PROGRESSIVE DISCLOSURE
+   Demonstrates how fields respond to the selected plan type
+   ========================================================================== */
+
+.progressive-disclosure {
+  display: grid;
+  min-height: 540px;
+  grid-template-columns: minmax(210px, 0.45fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(2rem, 5vw, 4rem);
+  overflow: hidden;
+  padding: clamp(1.5rem, 4vw, 3rem);
+  border-radius: 1.5rem;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0)),
+    #e8f1f3;
+}
+
+/* Content */
+
+.progressive-disclosure__content {
+  min-width: 0;
+}
+
+.progressive-disclosure__eyebrow {
+  margin: 0 0 1rem;
+  color: var(--orange);
+  font-size: 0.7rem;
+  font-weight: 750;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.progressive-disclosure h4 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2rem, 3.5vw, 3.6rem);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.045em;
+}
+
+.progressive-disclosure__description {
+  margin: 1.25rem 0 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+/* Tabs */
+
+.progressive-disclosure__tabs {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.65rem;
+  margin-top: 2rem;
+}
+
+.progressive-disclosure__tab {
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: 0.75rem;
+  background: rgba(255, 255, 255, 0.65);
+  color: var(--muted);
+  cursor: pointer;
+  font-weight: 700;
+  transition:
+    color 200ms ease,
+    background-color 200ms ease,
+    border-color 200ms ease,
+    transform 200ms ease;
+}
+
+.progressive-disclosure__tab:hover {
+  color: var(--ink);
+  transform: translateY(-0.1rem);
+}
+
+.progressive-disclosure__tab:focus-visible {
+  outline: 3px solid rgba(236, 118, 88, 0.35);
+  outline-offset: 3px;
+}
+
+.progressive-disclosure__tab.is-active {
+  border-color: #073f55;
+  background: #073f55;
+  color: #fff;
+}
+
+.progressive-disclosure__principle {
+  margin: 2rem 0 0;
+  padding-left: 1rem;
+  border-left: 3px solid var(--orange);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.15rem;
+  line-height: 1.4;
+}
+
+/* Visual */
+
+.progressive-disclosure__visual {
+  position: relative;
+  min-width: 0;
+  min-height: 420px;
+}
+
+.progressive-disclosure__figure {
+  position: absolute;
+  display: grid;
+  margin: 0;
+  inset: 0;
+  place-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(1rem) scale(0.985);
+  transition:
+    opacity 550ms ease,
+    transform 650ms ease;
+}
+
+.progressive-disclosure__figure.is-active {
+  z-index: 1;
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0) scale(1);
+}
+
+.progressive-disclosure__figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 420px;
+  object-fit: contain;
+  border-radius: 1rem;
+  box-shadow: 0 1.75rem 4rem rgba(36, 33, 31, 0.15);
+}
+
+/* Joint-plan field annotation */
+
+.progressive-disclosure__field-callout {
+  position: absolute;
+  z-index: 3;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  max-width: 190px;
+  padding: 0.9rem 1rem;
+  border-radius: 0.8rem;
+  background: var(--paper-light);
+  box-shadow: 0 1rem 2.5rem rgba(36, 33, 31, 0.15);
+  opacity: 0;
+  transform: translateY(0.75rem) rotate(2deg);
+  transition:
+    opacity 350ms ease,
+    transform 450ms ease;
+}
+
+.progressive-disclosure__field-callout.is-visible {
+  opacity: 1;
+  transform: translateY(0) rotate(2deg);
+}
+
+.progressive-disclosure__field-callout span,
+.progressive-disclosure__field-callout strong {
+  display: block;
+}
+
+.progressive-disclosure__field-callout span {
+  color: var(--orange);
+  font-size: 0.68rem;
+  font-weight: 750;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.progressive-disclosure__field-callout strong {
+  margin-top: 0.3rem;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.05rem;
+  font-weight: 400;
+}
+
+/* Responsive */
+
+@media (max-width: 900px) {
+  .progressive-disclosure {
+    grid-template-columns: 1fr;
+  }
+
+  .progressive-disclosure__visual {
+    min-height: 360px;
+  }
+
+  .progressive-disclosure__figure img {
+    max-height: 360px;
+  }
+}
+
+@media (max-width: 560px) {
+  .progressive-disclosure {
+    min-height: auto;
+    padding: 1.25rem;
+  }
+
+  .progressive-disclosure__tabs {
+    grid-template-columns: 1fr;
+  }
+
+  .progressive-disclosure__visual {
+    min-height: 280px;
+  }
+
+  .progressive-disclosure__figure img {
+    max-height: 280px;
+  }
+
+  .progressive-disclosure__field-callout {
+    display: none;
+  }
+}
+
+/* Reduced motion */
+
+@media (prefers-reduced-motion: reduce) {
+  .progressive-disclosure__tab,
+  .progressive-disclosure__figure,
+  .progressive-disclosure__field-callout {
+    transition: none;
+  }
+
+  .progressive-disclosure__tab:hover {
+    transform: none;
+  }
+}

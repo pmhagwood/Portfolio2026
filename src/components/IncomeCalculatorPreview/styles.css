@@ -219,6 +219,7 @@
   gap: 0.45rem;
   margin: 0;
   transform: translateX(-50%);
+  display: none;
 }
 
 .income-preview__progress span {
@@ -249,7 +250,7 @@
   .income-preview__phone {
     top: 46%;
     left: 50%;
-    width: min(78%, 340px);
+    width: min(80%, 340px);
     transform: translate(-50%, -50%) rotate(2deg);
   }
 

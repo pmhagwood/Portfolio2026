@@ -1,0 +1,247 @@
+/* ==========================================================================
+   TWO PLANNING PATHS
+   Interactive comparison of the calculator's two planning modes
+   ========================================================================== */
+
+.planning-paths {
+  display: grid;
+  min-height: 560px;
+  grid-template-columns: minmax(180px, 0.38fr) minmax(0, 1fr);
+  gap: clamp(1.5rem, 4vw, 3.5rem);
+  overflow: hidden;
+  padding: clamp(1.5rem, 4vw, 3rem);
+  border-radius: 1.5rem;
+  background: linear-gradient(
+    145deg,
+    rgba(244, 240, 248, 0.25) 0%,
+    rgba(250, 247, 252, 0.55) 52%,
+    rgba(255, 253, 255, 0.85) 100%
+  );
+}
+
+/* ==========================================================================
+   CONTROLS
+   ========================================================================== */
+
+.planning-paths__controls {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.planning-paths__label {
+  margin: 0 0 1rem;
+  color: var(--orange);
+  font-size: 0.7rem;
+  font-weight: 750;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.planning-paths__tabs {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.planning-paths__tab {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: 0.75rem;
+  background: rgba(255, 255, 255, 0.55);
+  color: var(--muted);
+  cursor: pointer;
+  font-weight: 700;
+  text-align: left;
+  transition:
+    color 200ms ease,
+    background-color 200ms ease,
+    border-color 200ms ease,
+    transform 200ms ease;
+}
+
+.planning-paths__tab:hover {
+  color: var(--ink);
+  transform: translateX(0.2rem);
+}
+
+.planning-paths__tab:focus-visible {
+  outline: 3px solid rgba(236, 118, 88, 0.35);
+  outline-offset: 3px;
+}
+
+.planning-paths__tab.is-active {
+  border-color: #073f55;
+  background: #073f55;
+  color: #ffffff;
+}
+
+.planning-paths__explanation {
+  margin-top: 2rem;
+}
+
+.planning-paths__explanation h4 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.5rem, 2.4vw, 2.3rem);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+}
+
+.planning-paths__explanation p {
+  margin: 1rem 0 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+/* ==========================================================================
+   IMAGE COMPARISON
+   ========================================================================== */
+
+.planning-paths__visual {
+  position: relative;
+  min-width: 0;
+  min-height: 480px;
+  align-self: center;
+}
+
+.planning-paths__figure {
+  position: absolute;
+  display: flex;
+  margin: 0;
+  inset: 0;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(1.5rem) scale(0.985);
+  transition:
+    opacity 600ms ease,
+    transform 700ms ease;
+}
+
+.planning-paths__figure.is-active {
+  z-index: 1;
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(0) scale(1);
+}
+
+.planning-paths__figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 480px;
+  object-fit: contain;
+  border: 1px solid rgba(36, 33, 31, 0.1);
+  border-radius: 1rem;
+  box-shadow: 0 1.75rem 4rem rgba(36, 33, 31, 0.15);
+}
+
+/* ==========================================================================
+   EDITORIAL ANNOTATION
+   ========================================================================== */
+
+.planning-paths__annotation {
+  position: absolute;
+  z-index: 3;
+  right: 1.25rem;
+  bottom: 0;
+  max-width: 220px;
+  padding: 1rem 1.1rem;
+  border-radius: 0.8rem;
+  background: var(--paper-light);
+  box-shadow: 0 1rem 2.5rem rgba(36, 33, 31, 0.15);
+  transform: rotate(-2deg);
+}
+
+.planning-paths__annotation span,
+.planning-paths__annotation strong {
+  display: block;
+}
+
+.planning-paths__annotation span {
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+
+.planning-paths__annotation strong {
+  margin-top: 0.25rem;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.1rem;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+
+@media (max-width: 900px) {
+  .planning-paths {
+    grid-template-columns: 1fr;
+  }
+
+  .planning-paths__tabs {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .planning-paths__tab {
+    text-align: center;
+  }
+
+  .planning-paths__tab:hover {
+    transform: translateY(-0.1rem);
+  }
+
+  .planning-paths__visual {
+    min-height: 420px;
+  }
+
+  .planning-paths__figure img {
+    max-height: 420px;
+  }
+}
+
+@media (max-width: 560px) {
+  .planning-paths {
+    min-height: auto;
+    padding: 1.25rem;
+  }
+
+  .planning-paths__tabs {
+    grid-template-columns: 1fr;
+  }
+
+  .planning-paths__visual {
+    min-height: 300px;
+  }
+
+  .planning-paths__figure img {
+    max-height: 300px;
+  }
+
+  .planning-paths__annotation {
+    display: none;
+  }
+}
+
+/* ==========================================================================
+   REDUCED MOTION
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .planning-paths__tab,
+  .planning-paths__figure {
+    transition: none;
+  }
+
+  .planning-paths__tab:hover {
+    transform: none;
+  }
+}
