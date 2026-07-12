@@ -12,9 +12,12 @@
   overflow: hidden;
   padding: clamp(1.5rem, 4vw, 3rem);
   border-radius: 1.5rem;
-  background:
-    linear-gradient(145deg, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0)),
-    #e8f1f3;
+  background: linear-gradient(
+    145deg,
+    rgba(244, 240, 248, 0.25) 0%,
+    rgba(250, 247, 252, 0.55) 52%,
+    rgba(255, 253, 255, 0.85) 100%
+  );
 }
 
 /* Content */

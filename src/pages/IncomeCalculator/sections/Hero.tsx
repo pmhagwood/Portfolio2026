@@ -57,11 +57,6 @@ function Hero() {
           </div>
         </div>
       </div>
-
-      <a className="income-hero__scroll" href="#challenge">
-        Continue to the challenge
-        <span aria-hidden="true">↓</span>
-      </a>
     </section>
   );
 }

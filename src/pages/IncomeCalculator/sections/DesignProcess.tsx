@@ -1,5 +1,6 @@
 import TwoPlanningPaths from "@/components/TwoPlanningPaths/TwoPlanningPaths";
 import ProgressiveDisclosure from "@/components/ProgressiveDisclosure/ProgressiveDisclosure";
+import DesignToProduction from "@/components/DesignToProduction/DesignToProduction";
 
 function DesignProcess() {
   return (
@@ -86,8 +87,8 @@ function DesignProcess() {
             </p>
           </div>
 
-          <div className="income-process-step__visual income-process-step__visual--placeholder">
-            <span>Figma to live product</span>
+          <div className="income-process-step__visual">
+            <DesignToProduction />
           </div>
         </article>
       </div>

@@ -1,0 +1,72 @@
+/* ==========================================================================
+   CASE STUDY NAVIGATION
+   Sticky navigation for long-form case-study sections
+   ========================================================================== */
+
+.case-study-nav {
+  position: sticky;
+  z-index: 50;
+  top: 0;
+  width: 100%;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background: rgba(243, 239, 232, 0.94);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.case-study-nav__inner {
+  display: flex;
+  width: 100%;
+  max-width: 1440px;
+  gap: clamp(1.25rem, 3vw, 2.75rem);
+  overflow-x: auto;
+  margin: 0 auto;
+  padding: 1rem var(--page-padding);
+  scrollbar-width: none;
+}
+
+.case-study-nav__inner::-webkit-scrollbar {
+  display: none;
+}
+
+.case-study-nav a {
+  position: relative;
+  flex: 0 0 auto;
+  padding: 0.25rem 0;
+  color: var(--muted);
+  font-size: 0.75rem;
+  font-weight: 750;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: color 180ms ease;
+}
+
+.case-study-nav a:hover,
+.case-study-nav a:focus-visible {
+  color: var(--ink);
+}
+
+.case-study-nav a::after {
+  position: absolute;
+  right: 0;
+  bottom: -0.25rem;
+  left: 0;
+  height: 2px;
+  background: var(--orange);
+  content: "";
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 180ms ease;
+}
+
+.case-study-nav a:hover::after,
+.case-study-nav a:focus-visible::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.case-study-nav a:focus-visible {
+  outline: 2px solid var(--orange);
+  outline-offset: 0.4rem;
+}
