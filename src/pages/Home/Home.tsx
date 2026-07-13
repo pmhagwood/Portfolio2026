@@ -111,15 +111,19 @@ function Home() {
                   className={`project ${project.className}`}
                   key={project.title}
                 >
-                  <div className="project__visual">
-                    <span className="project__number">{project.number}</span>
-
-                    {preview ?? (
-                      <div className="project__mockup">
-                        <span>{project.title}</span>
-                      </div>
-                    )}
-                  </div>
+                  <Link
+                    className="project__visual-link"
+                    to={project.href}
+                    aria-hidden="true"
+                  >
+                    <div className="project__visual">
+                      {preview ?? (
+                        <div className="project__mockup">
+                          <span>{project.title}</span>
+                        </div>
+                      )}
+                    </div>
+                  </Link>
 
                   <div className="project__content">
                     <p className="project__statement">{project.statement}</p>
