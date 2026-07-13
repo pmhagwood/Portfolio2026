@@ -337,9 +337,13 @@ button {
 
 .project {
   display: grid;
-  grid-template-columns: minmax(300px, 1.2fr) minmax(280px, 0.8fr);
+  grid-template-columns: minmax(300px, 1.25fr) minmax(280px, 0.8fr);
   align-items: center;
   gap: clamp(3rem, 8vw, 8rem);
+}
+
+.project:nth-child(even) {
+  grid-template-columns: minmax(280px, 0.8fr) minmax(300px, 1.25fr);
 }
 
 /* Alternate the visual and text positions on desktop */
@@ -368,6 +372,20 @@ button {
 
 .project--income .income-preview {
   transform: translateX(5%);
+}
+
+/* ASPIDARE */
+
+.project--aspidare .project__visual {
+  min-height: 680px;
+  overflow: hidden;
+  padding: 0;
+  background: transparent;
+}
+
+.project--aspidare .aspidare-preview {
+  width: 100%;
+  min-height: 680px;
 }
 
 .project--wwid .project__visual {

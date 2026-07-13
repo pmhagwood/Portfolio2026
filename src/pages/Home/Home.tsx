@@ -1,9 +1,18 @@
 import { Link } from "react-router-dom";
 import IncomeCalculatorPreview from "@components/IncomeCalculatorPreview";
+import AspidaRePreview from "@components/AspidaRePreview/AspidaRePreview";
 import { projects } from "@data/projects";
 import { capabilities } from "@data/capabilities";
 import shapeOnlyLogo from "@assets/images/logos/paulhagwood-creative-logo-shapeonly.png";
+
 import "./Home.css";
+
+const previewMap = {
+  income: <IncomeCalculatorPreview />,
+  aspidare: <AspidaRePreview />,
+  wwid: <div className="project__mockup">When Will I Die?</div>,
+  aspida: <div className="project__mockup">Aspida Digital Experience</div>,
+};
 
 function Home() {
   return (
@@ -94,43 +103,47 @@ function Home() {
           </div>
 
           <div className="project-list">
-            {projects.map((project) => (
-              <article
-                className={`project ${project.className}`}
-                key={project.title}
-              >
-                <div className="project__visual">
-                  <span className="project__number">{project.number}</span>
+            {projects.map((project) => {
+              const preview = previewMap[project.previewKey];
 
-                  {project.className === "project--income" ? (
-                    <IncomeCalculatorPreview />
-                  ) : (
-                    <div className="project__mockup">
-                      <span>{project.title}</span>
-                    </div>
-                  )}
-                </div>
+              return (
+                <article
+                  className={`project ${project.className}`}
+                  key={project.title}
+                >
+                  <div className="project__visual">
+                    <span className="project__number">{project.number}</span>
 
-                <div className="project__content">
-                  <p className="project__statement">{project.statement}</p>
+                    {preview ?? (
+                      <div className="project__mockup">
+                        <span>{project.title}</span>
+                      </div>
+                    )}
+                  </div>
 
-                  <h3>{project.title}</h3>
+                  <div className="project__content">
+                    <p className="project__statement">{project.statement}</p>
 
-                  <p className="project__description">{project.description}</p>
+                    <h3>{project.title}</h3>
 
-                  <ul className="project__disciplines">
-                    {project.disciplines.map((discipline) => (
-                      <li key={discipline}>{discipline}</li>
-                    ))}
-                  </ul>
+                    <p className="project__description">
+                      {project.description}
+                    </p>
 
-                  <Link className="project__link" to="/work/income-calculator">
-                    View case study
-                    <span aria-hidden="true">↗</span>
-                  </Link>
-                </div>
-              </article>
-            ))}
+                    <ul className="project__disciplines">
+                      {project.disciplines.map((discipline) => (
+                        <li key={discipline}>{discipline}</li>
+                      ))}
+                    </ul>
+
+                    <Link className="project__link" to={project.href}>
+                      View case study
+                      <span aria-hidden="true">↗</span>
+                    </Link>
+                  </div>
+                </article>
+              );
+            })}
           </div>
         </section>
 

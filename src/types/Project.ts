@@ -5,4 +5,6 @@ export type Project = {
   description: string;
   disciplines: string[];
   className: string;
+  href: string;
+  previewKey: "income" | "aspidare" | "wwid" | "aspida";
 };
