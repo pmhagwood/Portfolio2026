@@ -1,0 +1,496 @@
+/* ==========================================================================
+   ASPIDA RE CASE STUDY
+   ========================================================================== */
+
+.aspidare-case-study {
+  min-height: 100vh;
+  background: #ffffff;
+  color: var(--ink);
+}
+
+.aspidare-case-study__nav {
+  z-index: 6;
+  margin-top: clamp(-5.5rem, -8vw, -3.5rem);
+}
+
+/* ==========================================================================
+   HERO
+   ========================================================================== */
+
+.aspidare-hero {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  padding: 2rem var(--page-padding) clamp(10rem, 16vw, 16rem);
+  background: #ffffff;
+}
+
+.aspidare-hero__topbar {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.aspidare-hero__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid var(--ink);
+  font-weight: 700;
+}
+
+.aspidare-hero__index {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.75rem;
+  font-weight: 750;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* Hero copy */
+
+.aspidare-hero__content {
+  position: relative;
+  z-index: 3;
+  width: min(100%, 1220px);
+  margin: clamp(6rem, 11vw, 11rem) auto 0;
+}
+
+.aspidare-hero__eyebrow {
+  margin: 0 0 1.5rem;
+  color: #167f84;
+  font-size: 0.75rem;
+  font-weight: 750;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.aspidare-hero h1 {
+  max-width: 1100px;
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(4rem, 9vw, 9rem);
+  font-weight: 400;
+  line-height: 0.9;
+  letter-spacing: -0.065em;
+}
+
+.aspidare-hero__intro {
+  max-width: 760px;
+  margin: 2.5rem 0 0;
+  color: var(--muted);
+  font-size: clamp(1.1rem, 1.8vw, 1.4rem);
+  line-height: 1.75;
+}
+
+/* Project metadata */
+
+.aspidare-hero__meta {
+  display: grid;
+  max-width: 900px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2rem;
+  margin: clamp(3rem, 6vw, 5rem) 0 0;
+  padding-top: 2rem;
+  border-top: 1px solid var(--line);
+}
+
+.aspidare-hero__meta div {
+  min-width: 0;
+}
+
+.aspidare-hero__meta dt {
+  color: #167f84;
+  font-size: 0.7rem;
+  font-weight: 750;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.aspidare-hero__meta dd {
+  margin: 0.8rem 0 0;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+/* ==========================================================================
+   SAILBOAT
+   ========================================================================== */
+
+.aspidare-hero__sailing {
+  position: absolute;
+  z-index: 2;
+  right: clamp(1.5rem, 4vw, 4rem);
+  bottom: clamp(1.5rem, 4vw, 3.5rem);
+  left: clamp(1.5rem, 4vw, 4rem);
+  height: clamp(10rem, 17vw, 15rem);
+  pointer-events: none;
+}
+
+.aspidare-hero__boat {
+  position: absolute;
+  bottom: 0.75rem;
+  left: -34%;
+  display: block;
+  width: clamp(170px, 25vw, 390px);
+  height: auto;
+  opacity: 0;
+}
+
+.aspidare-hero__boat.is-visible {
+  animation: aspidare-hero-sail 9.5s 250ms both cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes aspidare-hero-sail {
+  from {
+    left: -34%;
+    opacity: 0;
+    transform: translateY(0.75rem);
+  }
+
+  12% {
+    opacity: 1;
+  }
+
+  84% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  to {
+    left: 102%;
+    opacity: 0;
+    transform: translateY(0);
+  }
+}
+
+/* Continue link */
+
+.aspidare-hero__continue {
+  position: absolute;
+  z-index: 5;
+  right: var(--page-padding);
+  bottom: 2rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.aspidare-hero__continue span {
+  font-size: 1.2rem;
+  transition: transform 200ms ease;
+}
+
+.aspidare-hero__continue:hover span {
+  transform: translateY(0.25rem);
+}
+
+/* Soft transition into teal section */
+
+.aspidare-hero__transition {
+  position: absolute;
+  z-index: 1;
+  right: -5%;
+  bottom: -7rem;
+  left: -5%;
+  height: 11rem;
+  border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+  background: #5bc0be;
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+
+@media (max-width: 760px) {
+  .aspidare-hero {
+    min-height: auto;
+    padding-bottom: 12rem;
+  }
+
+  .aspidare-hero__topbar {
+    align-items: flex-start;
+  }
+
+  .aspidare-hero__index {
+    text-align: right;
+  }
+
+  .aspidare-hero__content {
+    margin-top: 5rem;
+  }
+
+  .aspidare-hero h1 {
+    font-size: clamp(3.7rem, 17vw, 6rem);
+  }
+
+  .aspidare-hero__meta {
+    grid-template-columns: 1fr;
+  }
+
+  .aspidare-hero__sailing {
+    bottom: 2rem;
+    right: 1rem;
+    left: 1rem;
+    height: 9rem;
+  }
+
+  .aspidare-hero__boat {
+    width: clamp(150px, 46vw, 230px);
+  }
+
+  .aspidare-hero__continue {
+    right: auto;
+    left: var(--page-padding);
+  }
+}
+
+/* ==========================================================================
+   REDUCED MOTION
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .aspidare-hero__boat {
+    left: 62%;
+    bottom: 0.75rem;
+    opacity: 1;
+    animation: none;
+  }
+
+  .aspidare-hero__continue span {
+    transition: none;
+  }
+}
+
+/* ==========================================================================
+   INSPIRED BY PLACE
+   ========================================================================== */
+
+.aspidare-place {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(7rem, 12vw, 12rem) var(--page-padding) clamp(8rem, 13vw, 13rem);
+  background:
+    radial-gradient(
+      circle at 90% 18%,
+      rgba(255, 255, 255, 0.22),
+      transparent 24rem
+    ),
+    #5bc0be;
+  color: #073f55;
+}
+
+/* Intro */
+
+.aspidare-place__intro {
+  display: grid;
+  max-width: 1220px;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 0.65fr);
+  gap: clamp(3rem, 8vw, 8rem);
+  margin: 0 auto clamp(5rem, 9vw, 9rem);
+}
+
+.aspidare-place__eyebrow {
+  grid-column: 1 / -1;
+  margin: 0;
+  color: rgba(7, 63, 85, 0.74);
+  font-size: 0.75rem;
+  font-weight: 750;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.aspidare-place h2 {
+  max-width: 880px;
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(3rem, 6vw, 6.5rem);
+  font-weight: 400;
+  line-height: 0.95;
+  letter-spacing: -0.055em;
+}
+
+.aspidare-place__copy {
+  align-self: end;
+}
+
+.aspidare-place__copy p {
+  margin: 0 0 1.5rem;
+  color: rgba(7, 63, 85, 0.78);
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+.aspidare-place__copy .aspidare-place__lead {
+  color: #073f55;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.4rem, 2.6vw, 2.4rem);
+  line-height: 1.25;
+}
+
+/* Solutions-page presentation */
+
+.aspidare-place__presentation {
+  position: relative;
+  display: grid;
+  max-width: 1220px;
+  grid-template-columns: minmax(0, 1fr) minmax(240px, 0.34fr);
+  align-items: end;
+  gap: clamp(2rem, 5vw, 4.5rem);
+  margin: 0 auto;
+}
+
+.aspidare-place__image-frame {
+  min-width: 0;
+  overflow: hidden;
+  border: 0.6rem solid rgba(255, 255, 255, 0.92);
+  border-radius: 1.5rem;
+  background: #ffffff;
+  box-shadow: 0 3rem 7rem rgba(7, 63, 85, 0.24);
+  transform: rotate(-1.5deg);
+}
+
+.aspidare-place__browser-bar {
+  display: none;
+  gap: 0.45rem;
+  padding: 0.8rem 1rem;
+  background: #f4f1eb;
+}
+
+.aspidare-place__browser-bar span {
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  background: rgba(36, 33, 31, 0.23);
+}
+
+.aspidare-place__image-window {
+  height: clamp(480px, 58vw, 800px);
+  overflow: hidden;
+}
+
+.aspidare-place__image-window img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  /*
+   * Adjust this to choose the strongest crop
+   * from your long Solutions-page screenshot.
+   */
+  object-position: center top;
+}
+
+/* Editorial note */
+
+.aspidare-place__note {
+  max-width: 330px;
+  margin-bottom: clamp(1rem, 5vw, 4rem);
+  padding: 1.5rem;
+  border-left: 3px solid #ffffff;
+}
+
+.aspidare-place__note span {
+  display: block;
+  margin-bottom: 0.75rem;
+  color: rgba(7, 63, 85, 0.72);
+  font-size: 0.7rem;
+  font-weight: 750;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.aspidare-place__note p {
+  margin: 0;
+  color: #073f55;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.25rem, 2.2vw, 1.9rem);
+  line-height: 1.3;
+}
+
+/* Creative principles */
+
+.aspidare-place__principles {
+  display: grid;
+  max-width: 1220px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: clamp(6rem, 10vw, 10rem) auto 0;
+  border-top: 1px solid rgba(7, 63, 85, 0.24);
+  border-left: 1px solid rgba(7, 63, 85, 0.24);
+}
+
+.aspidare-place__principles article {
+  min-height: 300px;
+  padding: clamp(2rem, 4vw, 3.5rem);
+  border-right: 1px solid rgba(7, 63, 85, 0.24);
+  border-bottom: 1px solid rgba(7, 63, 85, 0.24);
+}
+
+.aspidare-place__principles article > span {
+  color: rgba(7, 63, 85, 0.68);
+  font-size: 0.72rem;
+  font-weight: 750;
+  letter-spacing: 0.13em;
+}
+
+.aspidare-place__principles h3 {
+  margin: 1rem 0 1rem;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2rem, 3.5vw, 3.6rem);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.aspidare-place__principles p {
+  max-width: 420px;
+  margin: 0;
+  color: rgba(7, 63, 85, 0.75);
+  line-height: 1.7;
+}
+
+/* Responsive */
+
+@media (max-width: 900px) {
+  .aspidare-place__intro,
+  .aspidare-place__presentation {
+    grid-template-columns: 1fr;
+  }
+
+  .aspidare-place__note {
+    max-width: 620px;
+    margin: 0;
+  }
+
+  .aspidare-place__principles {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 680px) {
+  .aspidare-place {
+    padding-top: 6rem;
+  }
+
+  .aspidare-place__image-frame {
+    border-width: 0.35rem;
+    border-radius: 1rem;
+    transform: none;
+  }
+
+  .aspidare-place__image-window {
+    height: 420px;
+  }
+
+  .aspidare-place__principles article {
+    min-height: auto;
+  }
+}
