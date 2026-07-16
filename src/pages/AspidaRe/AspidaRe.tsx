@@ -1,9 +1,8 @@
 import Hero from "./sections/Hero";
-import Challenge from "./sections/Challenge";
-import DesignDirection from "./sections/DesignDirection";
-import InformationArchitecture from "./sections/InformationArchitecture";
-import DesignSystem from "./sections/DesignSystem";
-import GlobalExperience from "./sections/GlobalExperience";
+import InspiredByPlace from "./sections/InspiredByPlace";
+import Motion from "./sections/Motion";
+import Solutions from "./sections/Solutions";
+import Development from "./sections/Development";
 import Results from "./sections/Results";
 import Reflection from "./sections/Reflection";
 import CaseStudyNav, {
@@ -14,24 +13,20 @@ import "./AspidaRe.css";
 
 const aspidaReNavItems: CaseStudyNavItem[] = [
   {
-    id: "challenge",
-    label: "Question",
+    id: "Inspired-by-place",
+    label: "Inspired by Place",
   },
   {
-    id: "design-direction",
-    label: "Principles",
+    id: "motion",
+    label: "Motion",
   },
   {
-    id: "information-architecture",
-    label: "Information Architecture",
+    id: "solutions",
+    label: "Solutions",
   },
   {
-    id: "design-system",
-    label: "Design System",
-  },
-  {
-    id: "global-experience",
-    label: "Global Experience",
+    id: "development",
+    label: "Development",
   },
   {
     id: "results",
@@ -43,23 +38,24 @@ const aspidaReNavItems: CaseStudyNavItem[] = [
   },
 ];
 
-function IncomeCalculator() {
+function AspidaRe() {
   return (
-    <main className="income-case-study">
+    <main className="aspidare-case-study">
       <Hero />
       <CaseStudyNav
         ariaLabel="Aspida Re case study sections"
+        className="aspidare-case-study__nav"
         items={aspidaReNavItems}
+        transparentUntilStuck
       />
-      <Challenge />
-      <DesignDirection />
-      <InformationArchitecture />
-      <DesignSystem />
-      <GlobalExperience />
+      <InspiredByPlace />
+      <Motion />
+      <Solutions />
+      <Development />
       <Results />
       <Reflection />
     </main>
   );
 }
 
-export default IncomeCalculator;
+export default AspidaRe;
