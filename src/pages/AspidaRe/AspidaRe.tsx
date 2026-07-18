@@ -1,8 +1,8 @@
 import Hero from "./sections/Hero";
 import InspiredByPlace from "./sections/InspiredByPlace";
-import Motion from "./sections/Motion";
+import PartnershipStory from "./sections/PartnershipStory";
 import Solutions from "./sections/Solutions";
-import Development from "./sections/Development";
+import CraftingExperience from "./sections/CraftingExperience";
 import Results from "./sections/Results";
 import Reflection from "./sections/Reflection";
 import CaseStudyNav, {
@@ -17,16 +17,16 @@ const aspidaReNavItems: CaseStudyNavItem[] = [
     label: "Inspired by Place",
   },
   {
-    id: "motion",
-    label: "Motion",
+    id: "partnership-story",
+    label: "Partnership Story",
   },
   {
     id: "solutions",
     label: "Solutions",
   },
   {
-    id: "development",
-    label: "Development",
+    id: "crafting-the-experience",
+    label: "Crafting the Experience",
   },
   {
     id: "results",
@@ -49,9 +49,9 @@ function AspidaRe() {
         transparentUntilStuck
       />
       <InspiredByPlace />
-      <Motion />
+      <PartnershipStory />
       <Solutions />
-      <Development />
+      <CraftingExperience />
       <Results />
       <Reflection />
     </main>

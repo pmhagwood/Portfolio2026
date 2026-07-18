@@ -2,31 +2,35 @@ import solutionsPage from "@assets/images/aspidare/Solutions-Home.jpg";
 
 function InspiredByPlace() {
   return (
-    <section className="aspidare-place" id="inspired-by-place">
+    <section
+      className="aspidare-place"
+      id="inspired-by-place"
+      aria-labelledby="inspired-by-place-title"
+    >
       <div className="aspidare-place__intro">
-        <p className="aspidare-place__eyebrow">Inspired by place</p>
+        <p className="aspidare-place__eyebrow">01 — Inspired by place</p>
 
-        <h2>
-          A digital experience shaped by island roots and global ambition.
+        <h2 id="inspired-by-place-title">
+          An island identity shaped the entire digital experience.
         </h2>
 
         <div className="aspidare-place__copy">
           <p className="aspidare-place__lead">
-            Aspida Re is rooted in Bermuda and the Cayman Islands, but operates
-            within a sophisticated global financial market.
+            Bermuda and the Cayman Islands became more than locations. They
+            shaped the visual language of the brand.
           </p>
 
           <p>
-            Rather than relying on the expected visual language of reinsurance,
-            I used openness, movement, color, photography, and interaction to
-            create an experience that felt confident, distinctive, and closely
-            connected to place.
+            Open horizons, movement, light, and exploration became recurring
+            themes throughout the experience. These ideas helped distinguish
+            Aspida Re from the restrained and often predictable visual language
+            of financial services.
           </p>
 
           <p>
-            The Solutions page became one of the clearest expressions of that
-            direction—combining complex business content with a more visual,
-            exploratory way to move through the story.
+            The result balances two very different needs: the confidence
+            expected from a global reinsurance company and the openness and
+            personality associated with its island roots.
           </p>
         </div>
       </div>
@@ -51,8 +55,8 @@ function InspiredByPlace() {
           <span>Creative direction</span>
 
           <p>
-            Island imagery and motion created a sense of openness without
-            weakening the credibility expected from a global reinsurance brand.
+            Island imagery and thoughtful motion created a distinctive
+            experience without weakening the credibility of the brand.
           </p>
         </div>
       </div>
@@ -61,24 +65,24 @@ function InspiredByPlace() {
         <article>
           <h3>Openness</h3>
           <p>
-            Generous space and large visual moments keep dense institutional
-            content from feeling closed or overwhelming.
+            Generous space and large visual moments give sophisticated content
+            room to breathe.
           </p>
         </article>
 
         <article>
           <h3>Movement</h3>
           <p>
-            Motion guides attention and helps the experience feel alive rather
-            than behaving like a static corporate brochure.
+            Animation and interaction establish rhythm while guiding attention
+            through the page.
           </p>
         </article>
 
         <article>
-          <h3>Confidence</h3>
+          <h3>Trust</h3>
           <p>
-            The visual system remains restrained and deliberate so the more
-            playful elements still feel credible.
+            The visual system remains deliberate and restrained so creativity
+            never competes with credibility.
           </p>
         </article>
       </div>
