@@ -1,3 +1,6 @@
+import desktopExperience from "@assets/images/aspidare/Solutions-Home.jpg";
+import mobileExperience from "@assets/images/aspidare/Solutions-mobile.jpg";
+
 const implementationAreas = [
   {
     number: "01",
@@ -129,47 +132,60 @@ function CraftingExperience() {
           </p>
         </div>
 
-        <div
-          className="aspidare-crafting__devices"
-          aria-label="Abstract desktop and mobile layout comparison"
-        >
-          <div className="aspidare-device aspidare-device--desktop">
-            <div className="aspidare-device__bar" aria-hidden="true">
+        <figure className="aspidare-crafting__screens">
+          <div className="aspidare-crafting__screen aspidare-crafting__screen--desktop">
+            <div className="aspidare-crafting__browser-bar" aria-hidden="true">
               <span />
               <span />
               <span />
             </div>
 
-            <div className="aspidare-device__desktop-layout">
-              <div className="aspidare-device__desktop-copy">
-                <span />
-                <span />
-                <span />
-              </div>
+            <div className="aspidare-crafting__desktop-window">
+              <img
+                src={desktopExperience}
+                alt="Desktop view of the Aspida Re website showing its responsive editorial layout"
+              />
+            </div>
 
-              <div className="aspidare-device__desktop-visual" />
-
-              <div className="aspidare-device__desktop-cards">
-                <span />
-                <span />
-                <span />
-              </div>
+            <div className="aspidare-crafting__screen-label">
+              <span>Desktop</span>
+              <p>
+                Wide compositions create space for layered storytelling,
+                imagery, and supporting content.
+              </p>
             </div>
           </div>
 
-          <div className="aspidare-device aspidare-device--mobile">
-            <div className="aspidare-device__mobile-layout">
-              <div className="aspidare-device__mobile-heading" />
-              <div className="aspidare-device__mobile-visual" />
-              <div className="aspidare-device__mobile-copy">
-                <span />
-                <span />
-                <span />
+          <div className="aspidare-crafting__screen aspidare-crafting__screen--mobile">
+            <div className="aspidare-crafting__phone-frame">
+              <div
+                className="aspidare-crafting__phone-speaker"
+                aria-hidden="true"
+              />
+
+              <div className="aspidare-crafting__mobile-window">
+                <img
+                  src={mobileExperience}
+                  alt="Mobile view of the Aspida Re website showing its reorganized responsive layout"
+                />
               </div>
-              <div className="aspidare-device__mobile-card" />
+            </div>
+
+            <div className="aspidare-crafting__screen-label">
+              <span>Mobile</span>
+              <p>
+                Content becomes a focused vertical sequence with clearer pacing,
+                simplified composition, and touch-friendly interaction.
+              </p>
             </div>
           </div>
-        </div>
+
+          <figcaption>
+            The same visual language is preserved across devices, while the
+            composition changes to support the available space and method of
+            interaction.
+          </figcaption>
+        </figure>
       </div>
 
       <blockquote className="aspidare-crafting__quote">
