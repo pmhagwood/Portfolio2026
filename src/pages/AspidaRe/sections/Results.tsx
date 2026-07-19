@@ -67,8 +67,6 @@ function Results() {
       <div className="aspidare-results__outcomes">
         {outcomes.map((outcome) => (
           <article key={outcome.number}>
-            <span className="aspidare-results__number">{outcome.number}</span>
-
             <div>
               <h3>{outcome.title}</h3>
               <p>{outcome.description}</p>

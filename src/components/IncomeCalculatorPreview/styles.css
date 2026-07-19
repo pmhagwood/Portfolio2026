@@ -243,23 +243,18 @@
 
 @media (max-width: 760px) {
   .income-preview {
-    width: min(100%, 390px);
-    min-height: 620px;
+    width: 100%;
   }
 
   .income-preview__phone {
     top: 46%;
-    left: 50%;
-    width: min(80%, 340px);
+    left: 30%;
+    width: min(50%, 340px);
     transform: translate(-50%, -50%) rotate(2deg);
   }
 
   .income-preview:hover .income-preview__phone {
     transform: translate(-50%, -50%) rotate(2deg);
-  }
-
-  .income-preview__callouts {
-    display: none;
   }
 
   .income-preview__progress {
@@ -289,5 +284,22 @@
   .income-preview__phone,
   .income-preview:hover .income-preview__phone {
     transform: translate(-50%, -50%);
+  }
+}
+
+@media (max-width: 550px) {
+  .income-preview__phone {
+    left: 25%;
+  }
+
+  .income-preview__callouts {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    height: 90%;
+  }
+
+  .income-preview__callout strong::before {
+    display: none;
   }
 }

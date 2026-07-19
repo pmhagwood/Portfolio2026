@@ -376,10 +376,6 @@ button {
   background: var(--yellow);
 }
 
-.project--income .income-preview {
-  transform: translateX(5%);
-}
-
 /* ASPIDARE */
 
 .project--aspidare .project__visual {
@@ -685,6 +681,10 @@ button {
   .project,
   .about,
   .brand-experience {
+    grid-template-columns: 1fr;
+  }
+
+  .project:nth-child(even) {
     grid-template-columns: 1fr;
   }
 
