@@ -93,3 +93,10 @@
   outline: 2px solid var(--orange);
   outline-offset: 0.4rem;
 }
+
+.case-study-nav__inner .case-study-nav__back {
+  margin-left: auto;
+  padding-left: 1.6rem;
+  border-left: 1px solid var(--line);
+  color: var(--orange);
+}
