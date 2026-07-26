@@ -63,7 +63,11 @@ function CaseStudyNav({
   return (
     <>
       {transparentUntilStuck ? (
-        <div className="case-study-nav__trigger" aria-hidden="true" ref={triggerRef} />
+        <div
+          className="case-study-nav__trigger"
+          aria-hidden="true"
+          ref={triggerRef}
+        />
       ) : null}
 
       <nav className={navClassName} aria-label={ariaLabel}>
@@ -73,6 +77,10 @@ function CaseStudyNav({
               {item.label}
             </a>
           ))}
+          <a href="/#work" className="case-study-nav__back">
+            <span aria-hidden="true">↖</span>
+            Back to Work
+          </a>
         </div>
       </nav>
     </>
