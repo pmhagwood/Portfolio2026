@@ -3,6 +3,7 @@ import "./Aspida.css";
 import AspidaHero from "./sections/AspidaHero";
 import AspidaChallenge from "./sections/AspidaChallenge";
 import ConnectedExperience from "./sections/ConnectedExperience";
+import SystemThinking from "./sections/SystemThinking";
 import CaseStudyNav, {
   type CaseStudyNavItem,
 } from "@components/CaseStudyNav/CaseStudyNav";
@@ -15,6 +16,10 @@ const aspidaItems: CaseStudyNavItem[] = [
   {
     id: "connected-journeys",
     label: "Connected Journeys",
+  },
+  {
+    id: "system-thinking",
+    label: "System Thinking",
   },
 ];
 
@@ -30,6 +35,7 @@ export default function AspidaDigitalExperience() {
       />
       <AspidaChallenge />
       <ConnectedExperience />
+      <SystemThinking />
     </main>
   );
 }
