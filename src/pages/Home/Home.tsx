@@ -160,7 +160,7 @@ function Home() {
           </div>
 
           <div className="capability-grid">
-            {capabilities.map((capability, index) => (
+            {capabilities.map((capability) => (
               <article className="capability" key={capability.title}>
                 <h3>{capability.title}</h3>
 
