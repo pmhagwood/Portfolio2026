@@ -13,7 +13,7 @@ import "./AspidaRe.css";
 
 const aspidaReNavItems: CaseStudyNavItem[] = [
   {
-    id: "Inspired-by-place",
+    id: "inspired-by-place",
     label: "Inspired by Place",
   },
   {

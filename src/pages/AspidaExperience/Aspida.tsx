@@ -4,6 +4,9 @@ import AspidaHero from "./sections/AspidaHero";
 import AspidaChallenge from "./sections/AspidaChallenge";
 import ConnectedExperience from "./sections/ConnectedExperience";
 import SystemThinking from "./sections/SystemThinking";
+import CraftingExperience from "./sections/CraftingExperience";
+import AspidaResults from "./sections/AspidaResults";
+import AspidaReflection from "./sections/AspidaReflection";
 import CaseStudyNav, {
   type CaseStudyNavItem,
 } from "@components/CaseStudyNav/CaseStudyNav";
@@ -19,7 +22,19 @@ const aspidaItems: CaseStudyNavItem[] = [
   },
   {
     id: "system-thinking",
-    label: "System Thinking",
+    label: "Designing a System",
+  },
+  {
+    id: "crafting-experience",
+    label: "Crafting the Experience",
+  },
+  {
+    id: "aspida-results",
+    label: "Results",
+  },
+  {
+    id: "aspida-reflection",
+    label: "Reflection",
   },
 ];
 
@@ -36,6 +51,9 @@ export default function AspidaDigitalExperience() {
       <AspidaChallenge />
       <ConnectedExperience />
       <SystemThinking />
+      <CraftingExperience />
+      <AspidaResults />
+      <AspidaReflection />
     </main>
   );
 }

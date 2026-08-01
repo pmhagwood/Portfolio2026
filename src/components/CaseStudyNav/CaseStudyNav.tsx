@@ -21,7 +21,9 @@ function CaseStudyNav({
   transparentUntilStuck = false,
 }: CaseStudyNavProps) {
   const triggerRef = useRef<HTMLDivElement | null>(null);
+  const navRef = useRef<HTMLElement | null>(null);
   const [isStuck, setIsStuck] = useState(false);
+  const [activeSectionId, setActiveSectionId] = useState(items[0]?.id ?? "");
 
   useEffect(() => {
     if (!transparentUntilStuck) {
@@ -51,6 +53,48 @@ function CaseStudyNav({
     };
   }, [transparentUntilStuck]);
 
+  useEffect(() => {
+    if (!items.length) {
+      return;
+    }
+
+    const updateActiveSection = () => {
+      const navHeight = navRef.current?.getBoundingClientRect().height ?? 0;
+      const offset = navHeight + 32;
+      let nextActiveId = items[0].id;
+
+      for (const item of items) {
+        const section = document.getElementById(item.id);
+
+        if (!section) {
+          continue;
+        }
+
+        const { top } = section.getBoundingClientRect();
+
+        if (top - offset <= 0) {
+          nextActiveId = item.id;
+        } else {
+          break;
+        }
+      }
+
+      setActiveSectionId(nextActiveId);
+    };
+
+    updateActiveSection();
+
+    window.addEventListener("scroll", updateActiveSection, { passive: true });
+    window.addEventListener("resize", updateActiveSection);
+    window.addEventListener("hashchange", updateActiveSection);
+
+    return () => {
+      window.removeEventListener("scroll", updateActiveSection);
+      window.removeEventListener("resize", updateActiveSection);
+      window.removeEventListener("hashchange", updateActiveSection);
+    };
+  }, [items]);
+
   const navClassName = [
     "case-study-nav",
     className,
@@ -70,10 +114,17 @@ function CaseStudyNav({
         />
       ) : null}
 
-      <nav className={navClassName} aria-label={ariaLabel}>
+      <nav className={navClassName} aria-label={ariaLabel} ref={navRef}>
         <div className="case-study-nav__inner">
           {items.map((item) => (
-            <a href={`#${item.id}`} key={item.id}>
+            <a
+              className={`case-study-nav__link ${
+                activeSectionId === item.id ? "is-active" : ""
+              }`}
+              href={`#${item.id}`}
+              key={item.id}
+              onClick={() => setActiveSectionId(item.id)}
+            >
               {item.label}
             </a>
           ))}
