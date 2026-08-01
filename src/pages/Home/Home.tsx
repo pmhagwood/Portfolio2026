@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import IncomeCalculatorPreview from "@components/IncomeCalculatorPreview";
 import AspidaRePreview from "@components/AspidaRePreview/AspidaRePreview";
+import AspidaExperiencePreview from "@components/AspidaPreview/AspidaExperiencePreview";
 import { projects } from "@data/projects";
 import { capabilities } from "@data/capabilities";
 import shapeOnlyLogo from "@assets/images/logos/paulhagwood-creative-logo-shapeonly.png";
@@ -11,7 +12,7 @@ const previewMap = {
   income: <IncomeCalculatorPreview />,
   aspidare: <AspidaRePreview />,
   wwid: <div className="project__mockup">When Will I Die?</div>,
-  aspida: <div className="project__mockup">Aspida Digital Experience</div>,
+  aspida: <AspidaExperiencePreview logoSrc={shapeOnlyLogo} />,
 };
 
 function Home() {
@@ -159,12 +160,8 @@ function Home() {
           </div>
 
           <div className="capability-grid">
-            {capabilities.map((capability, index) => (
+            {capabilities.map((capability) => (
               <article className="capability" key={capability.title}>
-                <span className="capability__number">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-
                 <h3>{capability.title}</h3>
 
                 <p>{capability.description}</p>
