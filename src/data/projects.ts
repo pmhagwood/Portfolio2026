@@ -45,15 +45,15 @@ export const projects: Project[] = [
     href: "/work/aspida",
     previewKey: "aspida",
   },
-  {
-    number: "04",
-    title: "When Will I Die?",
-    statement: "Turning an uncomfortable question into an engaging experience.",
-    description:
-      "A playful mobile-first experience combining storytelling, interaction, animation, and behavioral design to encourage exploration.",
-    disciplines: ["Product Design", "Interaction Design", "Motion", "React"],
-    className: "project--wwid",
-    href: "/work/when-will-i-die",
-    previewKey: "wwid",
-  },
+  // {
+  //   number: "04",
+  //   title: "When Will I Die?",
+  //   statement: "Turning an uncomfortable question into an engaging experience.",
+  //   description:
+  //     "A playful mobile-first experience combining storytelling, interaction, animation, and behavioral design to encourage exploration.",
+  //   disciplines: ["Product Design", "Interaction Design", "Motion", "React"],
+  //   className: "project--wwid",
+  //   href: "/work/when-will-i-die",
+  //   previewKey: "wwid",
+  // },
 ];

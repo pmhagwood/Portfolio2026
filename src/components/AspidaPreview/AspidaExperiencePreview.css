@@ -1,0 +1,532 @@
+/* ==========================================================================
+   Aspida Experience Preview
+   ========================================================================== */
+
+.aspida-experience-preview {
+  --preview-text: #f5f7fb;
+  --preview-muted: rgba(245, 247, 251, 0.62);
+  --preview-border: rgba(245, 247, 251, 0.18);
+  --preview-surface: #172033;
+  --preview-surface-light: #22304a;
+  --preview-accent: #8eb6ff;
+
+  position: relative;
+  width: 100%;
+  min-height: clamp(38rem, 62vw, 48rem);
+  overflow: hidden;
+  border-radius: clamp(1rem, 2vw, 2rem);
+  color: var(--preview-text);
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(71, 108, 170, 0.34),
+      transparent 38%
+    ),
+    var(--preview-surface);
+  isolation: isolate;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  margin: -1px;
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+.aspida-experience-preview__grid {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  opacity: 0.32;
+  background-image:
+    linear-gradient(var(--preview-border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--preview-border) 1px, transparent 1px);
+  background-size: 3rem 3rem;
+  mask-image: radial-gradient(circle at center, #000, transparent 78%);
+}
+
+.aspida-experience-preview__ecosystem {
+  position: absolute;
+  inset:
+    clamp(1.5rem, 3vw, 2.75rem)
+    clamp(1.5rem, 3vw, 2.75rem)
+    clamp(8rem, 13vw, 10.5rem)
+    clamp(1.5rem, 3vw, 2.75rem);
+}
+
+.aspida-experience-preview__center {
+  position: absolute;
+  top: 48%;
+  left: 50%;
+  width: clamp(12rem, 28vw, 21rem);
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+}
+
+.aspida-experience-preview__logo-mask,
+.aspida-experience-preview__logo-outline {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.aspida-experience-preview__logo-mask {
+  overflow: hidden;
+  background: var(--preview-surface-light);
+  mask-image: var(--aspida-preview-logo);
+  mask-position: center;
+  mask-repeat: no-repeat;
+  mask-size: contain;
+  -webkit-mask-image: var(--aspida-preview-logo);
+  -webkit-mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: contain;
+  animation: aspida-preview-logo-arrive 1000ms 500ms both
+    cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.aspida-experience-preview__logo-outline {
+  z-index: 3;
+  object-fit: contain;
+  opacity: 0.34;
+  filter: brightness(0) invert(1);
+  pointer-events: none;
+}
+
+.aspida-experience-preview__masked-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  opacity: 0;
+  transform: scale(1.1);
+  transition:
+    opacity 700ms ease,
+    transform 1400ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.aspida-experience-preview__masked-image--active {
+  opacity: 1;
+  transform: scale(1.02);
+}
+
+.aspida-experience-preview__center-copy {
+  position: absolute;
+  z-index: 4;
+  right: 50%;
+  bottom: -3.75rem;
+  width: max-content;
+  transform: translateX(50%);
+  text-align: center;
+  pointer-events: none;
+}
+
+.aspida-experience-preview__center-copy span,
+.aspida-experience-preview__center-copy strong {
+  display: block;
+}
+
+.aspida-experience-preview__center-copy span {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--preview-muted);
+}
+
+.aspida-experience-preview__center-copy strong {
+  margin-top: 0.45rem;
+  font-size: clamp(1.25rem, 2.4vw, 2rem);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+/* Nodes
+   ========================================================================== */
+
+.aspida-experience-preview__node {
+  position: absolute;
+  z-index: 5;
+  display: inline-flex;
+  gap: 0.65rem;
+  align-items: center;
+  max-width: clamp(8rem, 18vw, 11rem);
+  min-height: 2.75rem;
+  padding: 0.7rem 0.9rem;
+  border: 1px solid var(--preview-border);
+  border-radius: 999px;
+  color: var(--preview-text);
+  background: rgba(23, 32, 51, 0.76);
+  backdrop-filter: blur(0.75rem);
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(1rem);
+  transition:
+    border-color 250ms ease,
+    color 250ms ease,
+    background 250ms ease,
+    transform 250ms ease,
+    opacity 600ms ease;
+  animation: aspida-preview-node-arrive 700ms both
+    cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.aspida-experience-preview__node:nth-of-type(1) {
+  animation-delay: 150ms;
+}
+
+.aspida-experience-preview__node:nth-of-type(2) {
+  animation-delay: 250ms;
+}
+
+.aspida-experience-preview__node:nth-of-type(3) {
+  animation-delay: 350ms;
+}
+
+.aspida-experience-preview__node:nth-of-type(4) {
+  animation-delay: 450ms;
+}
+
+.aspida-experience-preview__node:nth-of-type(5) {
+  animation-delay: 550ms;
+}
+
+.aspida-experience-preview__node:nth-of-type(6) {
+  animation-delay: 650ms;
+}
+
+.aspida-experience-preview__node:hover,
+.aspida-experience-preview__node:focus-visible,
+.aspida-experience-preview__node--active {
+  border-color: var(--preview-accent);
+  color: #fff;
+  background: rgba(56, 83, 130, 0.92);
+  transform: translateY(-0.2rem);
+}
+
+.aspida-experience-preview__node:focus-visible {
+  outline: 2px solid var(--preview-accent);
+  outline-offset: 0.25rem;
+}
+
+.aspida-experience-preview__node-number {
+  font-size: 0.62rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--preview-muted);
+}
+
+.aspida-experience-preview__node-label {
+  font-size: clamp(0.72rem, 1.2vw, 0.88rem);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+}
+
+.aspida-experience-preview__node--top-left {
+  top: 2%;
+  left: 5%;
+}
+
+.aspida-experience-preview__node--top-right {
+  top: 2%;
+  right: 5%;
+}
+
+.aspida-experience-preview__node--middle-left {
+  top: 44%;
+  left: 1%;
+  transform: translateY(-50%);
+}
+
+.aspida-experience-preview__node--middle-right {
+  top: 44%;
+  right: 1%;
+  transform: translateY(-50%);
+}
+
+.aspida-experience-preview__node--bottom-left {
+  bottom: 3%;
+  left: 6%;
+}
+
+.aspida-experience-preview__node--bottom-right {
+  right: 6%;
+  bottom: 3%;
+}
+
+/* Connections
+   ========================================================================== */
+
+.aspida-experience-preview__connections {
+  position: absolute;
+  inset: clamp(2rem, 4vw, 4rem);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.aspida-experience-preview__connection {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: clamp(7rem, 19vw, 14rem);
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--preview-border),
+    var(--preview-accent)
+  );
+  transform-origin: left center;
+  opacity: 0;
+  animation: aspida-preview-line-arrive 800ms 850ms forwards ease;
+}
+
+.aspida-experience-preview__connection--top-left {
+  transform: rotate(215deg);
+}
+
+.aspida-experience-preview__connection--top-right {
+  transform: rotate(-35deg);
+}
+
+.aspida-experience-preview__connection--middle-left {
+  transform: rotate(180deg);
+}
+
+.aspida-experience-preview__connection--middle-right {
+  transform: rotate(0);
+}
+
+.aspida-experience-preview__connection--bottom-left {
+  transform: rotate(145deg);
+}
+
+.aspida-experience-preview__connection--bottom-right {
+  transform: rotate(35deg);
+}
+
+/* Active description
+   ========================================================================== */
+
+.aspida-experience-preview__active {
+  position: absolute;
+  bottom: clamp(1.5rem, 3vw, 2.5rem);
+  left: clamp(1.5rem, 3vw, 2.5rem);
+  z-index: 6;
+  max-width: 19rem;
+}
+
+.aspida-experience-preview__active-label {
+  margin: 0;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--preview-accent);
+}
+
+.aspida-experience-preview__active-description {
+  margin: 0.7rem 0 0;
+  font-size: clamp(0.82rem, 1.2vw, 1rem);
+  line-height: 1.55;
+  color: var(--preview-muted);
+}
+
+.aspida-experience-preview__progress {
+  position: absolute;
+  right: clamp(1.5rem, 3vw, 2.5rem);
+  bottom: clamp(1.5rem, 3vw, 2.5rem);
+  z-index: 6;
+  display: flex;
+  gap: 0.4rem;
+}
+
+.aspida-experience-preview__progress span {
+  display: block;
+  width: 1.5rem;
+  height: 2px;
+  background: var(--preview-border);
+  transition:
+    width 250ms ease,
+    background 250ms ease;
+}
+
+.aspida-experience-preview__progress
+  .aspida-experience-preview__progress-item--active {
+  width: 2.75rem;
+  background: var(--preview-accent);
+}
+
+/* Motion
+   ========================================================================== */
+
+@keyframes aspida-preview-node-arrive {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes aspida-preview-line-arrive {
+  from {
+    opacity: 0;
+    scale: 0 1;
+  }
+
+  to {
+    opacity: 0.8;
+    scale: 1 1;
+  }
+}
+
+@keyframes aspida-preview-logo-arrive {
+  from {
+    opacity: 0;
+    transform: scale(0.82) rotate(-4deg);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+  }
+}
+
+/* Tablet
+   ========================================================================== */
+
+@media (max-width: 62rem) {
+  .aspida-experience-preview {
+    min-height: 42rem;
+  }
+
+  .aspida-experience-preview__center {
+    width: clamp(11rem, 31vw, 17rem);
+  }
+
+  .aspida-experience-preview__node--middle-left {
+    left: 2%;
+  }
+
+  .aspida-experience-preview__node--middle-right {
+    right: 2%;
+  }
+}
+
+/* Mobile
+   ========================================================================== */
+
+@media (max-width: 42rem) {
+  .aspida-experience-preview {
+    min-height: 36rem;
+  }
+
+  .aspida-experience-preview__ecosystem {
+    inset: 1.1rem 1.1rem 8rem;
+  }
+
+  .aspida-experience-preview__center {
+    top: 40%;
+    width: min(50vw, 11.5rem);
+  }
+
+  .aspida-experience-preview__center-copy {
+    bottom: -3.5rem;
+  }
+
+  .aspida-experience-preview__node {
+    max-width: 7.5rem;
+    min-height: 2.4rem;
+    padding: 0.55rem 0.7rem;
+  }
+
+  .aspida-experience-preview__node-number {
+    display: none;
+  }
+
+  .aspida-experience-preview__node--top-left {
+    top: 2%;
+    left: 0;
+  }
+
+  .aspida-experience-preview__node--top-right {
+    top: 2%;
+    right: 0;
+  }
+
+  .aspida-experience-preview__node--middle-left {
+    top: 28%;
+    left: 0;
+  }
+
+  .aspida-experience-preview__node--middle-right {
+    top: 28%;
+    right: 0;
+  }
+
+  .aspida-experience-preview__node--bottom-left {
+    bottom: 5%;
+    left: 0;
+  }
+
+  .aspida-experience-preview__node--bottom-right {
+    right: 0;
+    bottom: 5%;
+  }
+
+  .aspida-experience-preview__connections {
+    inset: 1.1rem 1.1rem 8rem;
+  }
+
+  .aspida-experience-preview__connection {
+    width: 22vw;
+  }
+
+  .aspida-experience-preview__active {
+    right: 1.25rem;
+    bottom: 1.25rem;
+    left: 1.25rem;
+    max-width: none;
+  }
+
+  .aspida-experience-preview__active-description {
+    max-width: 25rem;
+  }
+
+  .aspida-experience-preview__progress {
+    display: none;
+  }
+}
+
+/* Reduced motion
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .aspida-experience-preview__node,
+  .aspida-experience-preview__connection,
+  .aspida-experience-preview__logo-mask {
+    animation: none;
+    opacity: 1;
+  }
+
+  .aspida-experience-preview__node {
+    transform: none;
+  }
+
+  .aspida-experience-preview__masked-image {
+    transition: none;
+  }
+
+  .aspida-experience-preview__visual:hover
+    .aspida-experience-preview__masked-image {
+    transform: none;
+  }
+}
